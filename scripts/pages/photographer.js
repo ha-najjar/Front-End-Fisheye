@@ -23,7 +23,8 @@ async function buildPhotographerPage(photographer, photographerMedias) {
   photographerMedias.forEach(media => {
     mediaTemplate(media, photographer.name);
   });
-
+ setModalPhotographerName(photographer.name);
+ buildTotalLikesAndPrice(photographer.price, photographerMedias);
 }
   // fonction récupére la liste des médias d'un photographe depuis le json
   async function getMediasById(id){
@@ -44,6 +45,7 @@ async function init() {
   const photographer = await getPhotographerById(id);
   const photographerMedias = await getMediasById(id);
   buildPhotographerPage(photographer, photographerMedias);
+
 }
 
 init();

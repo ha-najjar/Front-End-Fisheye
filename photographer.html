@@ -25,26 +25,34 @@
           <h3 class="photographer-location"></h3>
           <p class="photographer-tagline"></p>
         </div>
-        <button class="contact_button" onclick="displayModal()">
+        <button class="contact-button" onclick="displayModal()">
           Contactez-moi
         </button>
         <img class="photographer-image" alt="photo de photographe" />
       </div>
       <section class="photographer-medias"></section>
     </main>
+    <div class="total-likes">
+
+    </div>
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
+          <h2>Contactez-moi </br><strong class="modal-photographer-name"></strong></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form>
           <div>
-            <label>Prénom</label>
-            <input />
-           
+            <label for="firstname">Prénom</label>
+            <input  type="text" id="firstname"/>
+            <label for ="lastname">nom</label>
+            <input  type="text" id="lastname"/>
+            <label for ="email">Email</label>
+            <input  type="email" id="email"/>
+            <label for="message">Message</label>
+            <textarea id="message" rows="8"></textarea>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact-button">Envoyer</button>
         </form>
       </div>
     </div>

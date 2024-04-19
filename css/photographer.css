@@ -6,6 +6,7 @@
     left: 0;
     top: 0;
     background: rgba(196, 196, 196, 0.4);
+    overflow: auto;
 }
 
 .photograph-header {
@@ -77,7 +78,7 @@
 .likes-container .likes-number{
     margin-right: 4px;
 }
-.contact_button {
+.contact-button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -93,7 +94,7 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 44%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,11 +102,14 @@
     padding: 35px;
     margin: auto;
     margin-top: 30px;
+
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: 100%;
+    align-items: flex-start;
 }
 
 .modal header img {
@@ -115,7 +119,9 @@
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    line-height: 64px;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 form {
@@ -143,4 +149,23 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 36px;
+}
+form textarea {
+    width: 100%;
+}
+.total-likes {
+background-color: rgba(219, 136, 118, 1);
+width: 316px;
+height: 69px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 30px;
+border-radius:5px  5px 0 0;
+position: fixed;
+bottom: 0;
+right: 30px;
+font-size: 24px;
+font-weight: 500;
 }

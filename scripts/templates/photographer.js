@@ -60,5 +60,26 @@ function mediaTemplate(media, photographerName) {
 
 
 }
+function buildTotalLikesAndPrice(price,medias) {
+  const totalLikes = document.querySelector('.total-likes');
+  const photographerPrice = document.createElement('span');
+  photographerPrice.textContent = `${price}€ / jour`;
+  
+
+  const photographerLikes = document.createElement('span');
+
+  const likesIcon = document.createElement('i');
+  likesIcon.className = 'fa-solid fa-heart';
+
+  let likesNumber = 0;
+  medias.forEach(element => {
+    likesNumber += element.likes;
+  });
+  photographerLikes.innerText = likesNumber;
+  photographerLikes.appendChild(likesIcon);
+  totalLikes.appendChild(photographerLikes);
+  totalLikes.appendChild(photographerPrice);
+
+}
 
 
