@@ -21,6 +21,7 @@ function mediaTemplate(media, photographerName) {
     
     const article = document.createElement( 'article' );
     let imgVideo;
+    
     if (video) {
       const videoPath = `assets/images/${imageFolder}/${video}`;
       imgVideo = document.createElement('video');
@@ -35,6 +36,7 @@ function mediaTemplate(media, photographerName) {
       imgVideo = document.createElement( 'img' );
       imgVideo.setAttribute('src', picture);
     }
+    imgVideo.className = 'img-video';
     
     const itemContent = document.createElement('div');
     itemContent.className = 'item-content';
@@ -81,5 +83,6 @@ function buildTotalLikesAndPrice(price,medias) {
   totalLikes.appendChild(photographerPrice);
 
 }
+
 
 

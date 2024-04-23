@@ -53,6 +53,7 @@
     width: 350px;
     height: 300px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .photographer-medias video {
@@ -168,4 +169,49 @@ bottom: 0;
 right: 30px;
 font-size: 24px;
 font-weight: 500;
+}
+/**
+ LightBox
+ */
+.lightbox {
+    display: none;
+    background-color: #ffffff;
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lightbox i {
+    color: #901C1C;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.lightbox .right-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 15%;
+}
+
+.lightbox-container {
+    width: 60%;
+}
+
+.lightbox-container img, .lightbox-container video {
+    width: 100%;
+    max-height: 500px;
+}
+.lightbox-container h3{
+    font-size: 24px;
+    font-weight: 400;
+    color: #901C1C;
 }

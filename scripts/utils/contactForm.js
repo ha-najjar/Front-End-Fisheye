@@ -7,9 +7,9 @@ function closeModal() {
     const modal = document.getElementById('contact_modal');
     modal.style.display = "none";
 }
- function setModalPhotographerName(name) {
-const photographerName = document.querySelector('.modal-photographer-name');
-photographerName.textContent = name; 
+function setModalPhotographerName(name) {
+    const photographerName = document.querySelector('.modal-photographer-name');
+    photographerName.textContent = name; 
 }
 const form = document.querySelector('form');
 const first = document.getElementById('firstname');

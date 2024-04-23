@@ -17,14 +17,15 @@ async function getPhotographerById(id) {
 
 // fonction qui construit la page d'un photographe
 async function buildPhotographerPage(photographer, photographerMedias) {
-  photographerHeader(photographer);
-  // TO DO : for pour parcourir les medias et pour chaque élément appeler un template pour construire un seul media
+   photographerHeader(photographer);
+  // Parcourir les medias et pour chaque élément appeler un template pour construire un seul media
   
   photographerMedias.forEach(media => {
     mediaTemplate(media, photographer.name);
   });
  setModalPhotographerName(photographer.name);
  buildTotalLikesAndPrice(photographer.price, photographerMedias);
+ 
 }
   // fonction récupére la liste des médias d'un photographe depuis le json
   async function getMediasById(id){
@@ -44,8 +45,8 @@ async function init() {
 
   const photographer = await getPhotographerById(id);
   const photographerMedias = await getMediasById(id);
-  buildPhotographerPage(photographer, photographerMedias);
-
+  await buildPhotographerPage(photographer, photographerMedias);
+  buildLightbox(photographerMedias, photographer.name);
 }
 
 init();
