@@ -48,7 +48,7 @@ function mediaTemplate(media, photographerName) {
     likesNumber.className = 'likes-number';
     likesNumber.textContent = likes;
     const likesIcon = document.createElement('i');
-    likesIcon.className = 'fa-solid fa-heart';
+    likesIcon.className = 'fa-solid fa-heart like-icon';
     
     likesContainer.appendChild(likesNumber);
     likesContainer.appendChild(likesIcon);
@@ -62,14 +62,14 @@ function mediaTemplate(media, photographerName) {
 
 
 }
+
 function buildTotalLikesAndPrice(price,medias) {
   const totalLikes = document.querySelector('.total-likes');
-  const photographerPrice = document.createElement('span');
+  const photographerPrice = document.createElement('div');
   photographerPrice.textContent = `${price}€ / jour`;
-  
-
-  const photographerLikes = document.createElement('span');
-
+  const photographerLikes = document.createElement('div');
+  const  photographerLikesNumber = document.createElement('span');
+  photographerLikesNumber.className = 'total-likes-number';
   const likesIcon = document.createElement('i');
   likesIcon.className = 'fa-solid fa-heart';
 
@@ -77,12 +77,32 @@ function buildTotalLikesAndPrice(price,medias) {
   medias.forEach(element => {
     likesNumber += element.likes;
   });
-  photographerLikes.innerText = likesNumber;
+
+  photographerLikesNumber.textContent = likesNumber;
+  photographerLikes.appendChild(photographerLikesNumber);
   photographerLikes.appendChild(likesIcon);
   totalLikes.appendChild(photographerLikes);
   totalLikes.appendChild(photographerPrice);
-
 }
 
+const updateTotalLikes = () => {
+  const totalLikesNumber = document.querySelector('.total-likes-number');
+  totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
+   
+}
 
+const incrementLikesNumber = (likeElement) => {
+ // console.log(likeElement);
+  likeElement.textContent = Number(likeElement.textContent) + 1;
+  updateTotalLikes();
+}
 
+const updateLikes = () => {
+  const likesIcons = document.querySelectorAll('.like-icon');
+  likesIcons.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      incrementLikesNumber(element.parentElement.firstChild);
+    });
+  });
+}

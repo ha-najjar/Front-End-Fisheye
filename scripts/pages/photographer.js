@@ -46,6 +46,7 @@ async function init() {
   const photographer = await getPhotographerById(id);
   const photographerMedias = await getMediasById(id);
   await buildPhotographerPage(photographer, photographerMedias);
+  updateLikes();
   buildLightbox(photographerMedias, photographer.name);
 }
 

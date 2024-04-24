@@ -45,8 +45,9 @@ const  buildLightbox = (medias, photographerName) => {
             const videoDOM = document.createElement('video');
             videoDOM.setAttribute('controls', '');
             const videoDOMSource = document.createElement('source');
-            videoDOMSource.src = videoPath;
-            videoDOMSource.type = 'video/mp4';
+            videoDOMSource.setAttribute('src', videoPath);
+            videoDOMSource.setAttribute('type', 'video/mp4');
+            videoDOM.appendChild(videoDOMSource);
             lightboxContainer.appendChild(videoDOM);
         } else {
             const imageDOM = document.createElement('img');
