@@ -30,6 +30,37 @@
         </button>
         <img class="photographer-image" alt="photo de photographe" />
       </div>
+      <!-- Sort-By dropdown -->
+      <div class="sort_by">
+        <h4 class="sort_title">Trier par</h4>
+
+        <ul class="dropdown">
+          <i class="fa-solid fa-chevron-up"></i>
+          <li
+            role="button"
+            aria-labelledby="dropdown-label"
+            id="dropdown__selected"
+            tabindex="0"
+          >
+            Popularité
+
+
+          </li>
+          <li aria-expanded="false" role="list" class="dropdown__list-container">
+            <ul class="dropdown__list">
+              <li class="dropdown__list-item" tabindex="1" id="option-1" aria-label="Popularité, permet de trier les medias par popularité">
+                Popularité
+              </li>
+              <li class="dropdown__list-item" tabindex="1" id="option-2" aria-label="Date, permet de trier les medias par date">
+                Date
+              </li>
+              <li class="dropdown__list-item" tabindex="1" id="option-3" aria-label="Titre, permet de trier les medias par titre">
+                Titre
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <section class="photographer-medias"></section>
     </main>
     <div class="total-likes">
@@ -68,6 +99,7 @@
       </div>
     </div>
     
+    <script src="/scripts/utils/dropdownList.js"></script>
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>

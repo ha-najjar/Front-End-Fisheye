@@ -72,6 +72,7 @@ function buildTotalLikesAndPrice(price,medias) {
   photographerLikesNumber.className = 'total-likes-number';
   const likesIcon = document.createElement('i');
   likesIcon.className = 'fa-solid fa-heart';
+  likesIcon.setAttribute("aria-label", "likes");
 
   let likesNumber = 0;
   medias.forEach(element => {
