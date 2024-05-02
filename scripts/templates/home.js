@@ -7,8 +7,10 @@ function photographerTemplate(data) {
         const article = document.createElement( 'article' );
         const link = document.createElement('a');
         link.setAttribute('href', `photographer.html?id=${id}`);
+        link.setAttribute('aria-label', `${name}`);
         const img = document.createElement( 'img' );
-        img.setAttribute('src', picture)
+        img.setAttribute('src', picture);
+        img.setAttribute('alt', `${name}, photographe à ${city}, ${country}`);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const location = document.createElement('h3');
@@ -27,6 +29,13 @@ function photographerTemplate(data) {
         article.appendChild(location);
         article.appendChild(p);
         article.appendChild(p2);
+
+         // Ajout d'un aria-label à l'article pour une meilleure accessibilité
+         article.setAttribute('aria-label', `${name}, photographe à ${city}, ${country}`);
+        
+         // Définition du tabindex pour rendre l'élément focusable
+         article.setAttribute('tabindex', '0');
+
         return (article);
     }
     return { name, picture, getUserCardDOM }

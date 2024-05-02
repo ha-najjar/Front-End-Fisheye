@@ -7,6 +7,7 @@
     top: 0;
     background: rgba(196, 196, 196, 0.4);
     overflow: auto;
+    z-index: 2;
 }
 
 .photograph-header {
@@ -64,7 +65,7 @@
     padding: 0;
     position: relative;
     width: 150px;
-    z-index: 2;
+    z-index: 1;
 }
   
 .fa-chevron-up {
@@ -300,6 +301,7 @@ font-weight: 500;
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    z-index: 3;
 }
 
 .lightbox i {
