@@ -11,6 +11,7 @@ function photographerHeader(photographer) {
   photographerLocation.textContent = `${city}, ${country}`;
   photographerTagline.textContent = tagline;
   photographerImage.setAttribute("src", picture);
+  photographerImage.setAttribute("alt", name);
 }
 
 function mediaTemplate(media, photographerName) {
@@ -25,7 +26,8 @@ function mediaTemplate(media, photographerName) {
     if (video) {
       const videoPath = `assets/images/${imageFolder}/${video}`;
       imgVideo = document.createElement('video');
-      imgVideo.setAttribute('controls', '');
+      //imgVideo.setAttribute('controls', '');
+      imgVideo.setAttribute('alt', `vidéo réalisée par le photographe ${photographerName}`)
       const videoSource = document.createElement('source');
       videoSource.setAttribute('src', videoPath);
       videoSource.setAttribute('type', 'video/mp4');
@@ -35,8 +37,10 @@ function mediaTemplate(media, photographerName) {
       const picture = `assets/images/${imageFolder}/${image}`;
       imgVideo = document.createElement( 'img' );
       imgVideo.setAttribute('src', picture);
+      imgVideo.setAttribute('alt', `image réalisée par le photographe ${photographerName}`)
     }
     imgVideo.className = 'img-video';
+    imgVideo.setAttribute('tabindex', 0);
     
     const itemContent = document.createElement('div');
     itemContent.className = 'item-content';
@@ -49,6 +53,7 @@ function mediaTemplate(media, photographerName) {
     likesNumber.textContent = likes;
     const likesIcon = document.createElement('i');
     likesIcon.className = 'fa-solid fa-heart like-icon';
+    likesIcon.setAttribute('tabindex', 0);
     
     likesContainer.appendChild(likesNumber);
     likesContainer.appendChild(likesIcon);
@@ -58,7 +63,6 @@ function mediaTemplate(media, photographerName) {
     article.appendChild(itemContent);
     
     mediasContainer.appendChild(article);
-    
 
 
 }
@@ -89,13 +93,12 @@ function buildTotalLikesAndPrice(price,medias) {
 const updateTotalLikes = () => {
   const totalLikesNumber = document.querySelector('.total-likes-number');
   totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
-   
 }
 
 const incrementLikesNumber = (likeElement) => {
- // console.log(likeElement);
   likeElement.textContent = Number(likeElement.textContent) + 1;
   updateTotalLikes();
+  
 }
 
 const updateLikes = () => {
@@ -105,5 +108,14 @@ const updateLikes = () => {
       event.preventDefault();
       incrementLikesNumber(element.parentElement.firstChild);
     });
+
+    // ajouter la gestion du clavier  pour incrementer les likes 
+    element.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+          event.preventDefault();
+          incrementLikesNumber(element.parentElement.firstChild);          
+      }
+  });
+
   });
 }

@@ -3,6 +3,8 @@ const  buildLightbox = (medias, photographerName) => {
     const openLightbox = (index) => {
         const lightbox = document.querySelector('.lightbox');
         lightbox.style.display = "flex";
+        lightbox.setAttribute('tabindex', 0);
+        lightbox.focus();
         buildMediaDOM(index);
     };
 
@@ -68,8 +70,15 @@ const  buildLightbox = (medias, photographerName) => {
                 event.preventDefault();
                 openLightbox(index);
             });
+            element.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    openLightbox(index);
+                }
+                
+            });
         });
     };
+    
 
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxNext = document.querySelector('.lightbox-next');
@@ -79,20 +88,36 @@ const  buildLightbox = (medias, photographerName) => {
         event.preventDefault();
         closeLightbox();
     });
+    // Ajouter la gestion de clavier pour fermer la lightbox
+    lightboxClose.addEventListener("keydown", (event) => {
+        event.preventDefault();
+        if (event.key === "Enter") {
+            closeLightbox();
+        }
+    });
 
     lightboxNext.addEventListener("click", (event) => {
         event.preventDefault();
-        console.log(currentIndex);
-       
-            changeMedia('next');
+        changeMedia('next');
         
+    });
+    // Ajouter la gestion de clavier naviguer vers le média suivant
+    lightboxNext.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+            changeMedia('next');
+        }
     });
 
     lightboxPrevious.addEventListener("click", (event) => {
         event.preventDefault();
-       
-            changeMedia('previous');
+        changeMedia('previous');
         
+    });
+    // Ajouter la gestion de clavier naviguer vers le média précedent
+    lightboxPrevious.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            changeMedia('previous');
+        }     
     });
 
 

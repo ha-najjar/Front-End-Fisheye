@@ -16,7 +16,9 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" class="logo-link" aria-label="Fisheye Home page">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+      </a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -70,7 +72,7 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi </br><strong class="modal-photographer-name"></strong></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()"  alt="closeModal"/>
         </header>
         <form>
           <div>
@@ -90,12 +92,12 @@
     <!-- Lightbox -->
     <div class="lightbox">
       
-      <i class="fa-solid fa-chevron-left lightbox-prev"></i>
+      <i class="fa-solid fa-chevron-left lightbox-prev"  tabindex="1"></i>
       <div class="lightbox-container">
       </div>
       <div class="right-icons">
-        <i class="fa-solid fa-xmark lightbox-close"></i>
-        <i class="fa-solid fa-chevron-right lightbox-next"></i>
+        <i class="fa-solid fa-xmark lightbox-close" tabindex="2"></i>
+        <i class="fa-solid fa-chevron-right lightbox-next" tabindex="1"></i>
       </div>
     </div>
     

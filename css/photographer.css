@@ -196,6 +196,9 @@
 .likes-container .likes-number{
     margin-right: 4px;
 }
+.like-icon{
+    cursor: pointer;
+}
 .contact-button {
     font-size: 20px;
     font-weight: bold;
