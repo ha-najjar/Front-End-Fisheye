@@ -307,7 +307,7 @@ font-weight: 500;
     z-index: 3;
 }
 
-.lightbox i {
+.lightbox-prev, .lightbox-close, .lightbox-next {
     color: #901C1C;
     font-size: 42px;
     cursor: pointer;
