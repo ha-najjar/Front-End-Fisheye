@@ -1,22 +1,22 @@
 function photographerHeader(photographer) {
-  const { name, portrait, city, country, tagline } = photographer;
-  const picture = `assets/images/photographers-photos/${portrait}`;
+    const { name, portrait, city, country, tagline } = photographer;
+    const picture = `assets/images/photographers-photos/${portrait}`;
 
-  const photographerName = document.querySelector(".photographer-name");
-  const photographerLocation = document.querySelector(".photographer-location");
-  const photographerTagline = document.querySelector(".photographer-tagline");
-  const photographerImage = document.querySelector(".photographer-image");
+    const photographerName = document.querySelector('.photographer-name');
+    const photographerLocation = document.querySelector('.photographer-location');
+    const photographerTagline = document.querySelector('.photographer-tagline');
+    const photographerImage = document.querySelector('.photographer-image');
 
-  photographerName.textContent = name;
-  photographerLocation.textContent = `${city}, ${country}`;
-  photographerTagline.textContent = tagline;
-  photographerImage.setAttribute("src", picture);
-  photographerImage.setAttribute("alt", name);
+    photographerName.textContent = name;
+    photographerLocation.textContent = `${city}, ${country}`;
+    photographerTagline.textContent = tagline;
+    photographerImage.setAttribute('src', picture);
+    photographerImage.setAttribute('alt', name);
 }
 
 function mediaTemplate(media, photographerName) {
-  const mediasContainer = document.querySelector('.photographer-medias');
-  const {title, image, likes, video} = media;
+    const mediasContainer = document.querySelector('.photographer-medias');
+    const {title, image, likes, video} = media;
     const nameArray = photographerName.split(' ');
     const imageFolder = nameArray[0].toLowerCase();
     
@@ -24,20 +24,20 @@ function mediaTemplate(media, photographerName) {
     let imgVideo;
     
     if (video) {
-      const videoPath = `assets/images/${imageFolder}/${video}`;
-      imgVideo = document.createElement('video');
-      //imgVideo.setAttribute('controls', '');
-      imgVideo.setAttribute('alt', `vidéo réalisée par le photographe ${photographerName}`)
-      const videoSource = document.createElement('source');
-      videoSource.setAttribute('src', videoPath);
-      videoSource.setAttribute('type', 'video/mp4');
-      imgVideo.appendChild(videoSource);
+        const videoPath = `assets/images/${imageFolder}/${video}`;
+        imgVideo = document.createElement('video');
+        //imgVideo.setAttribute('controls', '');
+        imgVideo.setAttribute('alt', `vidéo réalisée par le photographe ${photographerName}`);
+        const videoSource = document.createElement('source');
+        videoSource.setAttribute('src', videoPath);
+        videoSource.setAttribute('type', 'video/mp4');
+        imgVideo.appendChild(videoSource);
 
     } else {
-      const picture = `assets/images/${imageFolder}/${image}`;
-      imgVideo = document.createElement( 'img' );
-      imgVideo.setAttribute('src', picture);
-      imgVideo.setAttribute('alt', `image réalisée par le photographe ${photographerName}`)
+        const picture = `assets/images/${imageFolder}/${image}`;
+        imgVideo = document.createElement( 'img' );
+        imgVideo.setAttribute('src', picture);
+        imgVideo.setAttribute('alt', `image réalisée par le photographe ${photographerName}`);
     }
     imgVideo.className = 'img-video';
     imgVideo.setAttribute('tabindex', 0);
@@ -68,54 +68,54 @@ function mediaTemplate(media, photographerName) {
 }
 
 function buildTotalLikesAndPrice(price,medias) {
-  const totalLikes = document.querySelector('.total-likes');
-  const photographerPrice = document.createElement('div');
-  photographerPrice.textContent = `${price}€ / jour`;
-  const photographerLikes = document.createElement('div');
-  const  photographerLikesNumber = document.createElement('span');
-  photographerLikesNumber.className = 'total-likes-number';
-  const likesIcon = document.createElement('i');
-  likesIcon.className = 'fa-solid fa-heart';
-  likesIcon.setAttribute("aria-label", "likes");
+    const totalLikes = document.querySelector('.total-likes');
+    const photographerPrice = document.createElement('div');
+    photographerPrice.textContent = `${price}€ / jour`;
+    const photographerLikes = document.createElement('div');
+    const  photographerLikesNumber = document.createElement('span');
+    photographerLikesNumber.className = 'total-likes-number';
+    const likesIcon = document.createElement('i');
+    likesIcon.className = 'fa-solid fa-heart';
+    likesIcon.setAttribute('aria-label', 'likes');
 
-  let likesNumber = 0;
-  medias.forEach(element => {
-    likesNumber += element.likes;
-  });
+    let likesNumber = 0;
+    medias.forEach(element => {
+        likesNumber += element.likes;
+    });
 
-  photographerLikesNumber.textContent = likesNumber;
-  photographerLikes.appendChild(photographerLikesNumber);
-  photographerLikes.appendChild(likesIcon);
-  totalLikes.appendChild(photographerLikes);
-  totalLikes.appendChild(photographerPrice);
+    photographerLikesNumber.textContent = likesNumber;
+    photographerLikes.appendChild(photographerLikesNumber);
+    photographerLikes.appendChild(likesIcon);
+    totalLikes.appendChild(photographerLikes);
+    totalLikes.appendChild(photographerPrice);
 }
 
 const updateTotalLikes = () => {
-  const totalLikesNumber = document.querySelector('.total-likes-number');
-  totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
-}
+    const totalLikesNumber = document.querySelector('.total-likes-number');
+    totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
+};
 
 const incrementLikesNumber = (likeElement) => {
-  likeElement.textContent = Number(likeElement.textContent) + 1;
-  updateTotalLikes();
+    likeElement.textContent = Number(likeElement.textContent) + 1;
+    updateTotalLikes();
   
-}
+};
 
 const updateLikes = () => {
-  const likesIcons = document.querySelectorAll('.like-icon');
-  likesIcons.forEach((element) => {
-    element.addEventListener("click", (event) => {
-      event.preventDefault();
-      incrementLikesNumber(element.parentElement.firstChild);
+    const likesIcons = document.querySelectorAll('.like-icon');
+    likesIcons.forEach((element) => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault();
+            incrementLikesNumber(element.parentElement.firstChild);
+        });
+
+        // ajouter la gestion du clavier  pour incrementer les likes 
+        element.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                incrementLikesNumber(element.parentElement.firstChild);          
+            }
+        });
+
     });
-
-    // ajouter la gestion du clavier  pour incrementer les likes 
-    element.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-          event.preventDefault();
-          incrementLikesNumber(element.parentElement.firstChild);          
-      }
-  });
-
-  });
-}
+};

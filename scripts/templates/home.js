@@ -30,13 +30,13 @@ function photographerTemplate(data) {
         article.appendChild(p);
         article.appendChild(p2);
 
-         // Ajout d'un aria-label à l'article pour une meilleure accessibilité
-         article.setAttribute('aria-label', `${name}, photographe à ${city}, ${country}`);
+        // Ajout d'un aria-label à l'article pour une meilleure accessibilité
+        article.setAttribute('aria-label', `${name}, photographe à ${city}, ${country}`);
         
-         // Définition du tabindex pour rendre l'élément focusable
-         article.setAttribute('tabindex', '0');
+        // Définition du tabindex pour rendre l'élément focusable
+        article.setAttribute('tabindex', '0');
 
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture, getUserCardDOM };
 }
