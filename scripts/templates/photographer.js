@@ -53,7 +53,7 @@ function mediaTemplate(media, photographerName) {
     likesNumber.textContent = likes;
     const likesIcon = document.createElement('i');
     likesIcon.className = 'fa-solid fa-heart like-icon';
-    likesIcon.setAttribute("aria-label", "bouton like en forme de coeur, permet d'ajouter un like a la photo");
+    likesIcon.setAttribute('aria-label', 'bouton like en forme de coeur, permet d\'ajouter un like a la photo');
     likesIcon.setAttribute('tabindex', 0);
     
     likesContainer.appendChild(likesNumber);
