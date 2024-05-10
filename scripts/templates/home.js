@@ -1,3 +1,4 @@
+// Crée une carte utilisateur DOM pour un photographe à partir des données fournies.
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 

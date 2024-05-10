@@ -1,5 +1,7 @@
+// Fonction pour construire la lightbox pour afficher les médias du photographe en plein écran.
 const  buildLightbox = (medias, photographerName) => {
     let currentIndex = 0;
+    //Fonction pour ouvrir la lightbox et afficher le média sélectionné.
     const openLightbox = (index) => {
         const lightbox = document.querySelector('.lightbox');
         lightbox.style.display = 'flex';
@@ -7,14 +9,14 @@ const  buildLightbox = (medias, photographerName) => {
         lightbox.focus();
         buildMediaDOM(index);
     };
-
+    // Fonction pour fermer la lightbox.
     const closeLightbox = () => {
         const lightbox = document.querySelector('.lightbox');
         lightbox.style.display = 'none';
         const lightboxContainer = document.querySelector('.lightbox-container');
         lightboxContainer.innerHTML = '';
     };
-
+    //Fonction pour changer le média affiché dans la lightbox.
     const changeMedia = (direction) => {
         if (direction === 'next') {
             if(currentIndex === medias.length - 1){
@@ -34,7 +36,7 @@ const  buildLightbox = (medias, photographerName) => {
             buildMediaDOM(currentIndex);
         }
     };
-
+    //Fonction pour construire le DOM du média dans la lightbox.
     const buildMediaDOM = (index) => {
         currentIndex = index;
         const lightboxContainer = document.querySelector('.lightbox-container');
@@ -62,7 +64,7 @@ const  buildLightbox = (medias, photographerName) => {
         lightboxContainer.appendChild(h3);
 
     };
-
+    // Fonction pour ajouter les événements de clic et de clavier aux médias pour ouvrir la lightbox.
     const addEventClickToMedias = () => {
         const mediasElements = document.querySelectorAll('.img-video');
         mediasElements.forEach( (element, index) => {

@@ -1,3 +1,4 @@
+// Fonction asynchrone qui récupère les données des photographes depuis un fichier JSON.
 async function getPhotographers() {
     const response = await fetch('./data/photographers.json');
     const photographers = await response.json();
@@ -5,12 +6,16 @@ async function getPhotographers() {
     return  photographers;
 }
 
+//Affiche les données des photographes dans la section dédiée sur la page HTML.
 async function displayData(photographers) {
+    // Sélectionne la section HTML où afficher les photographes
     const photographersSection = document.querySelector('.photographer_section');
 
     photographers.forEach((photographer) => {
+        // Crée le modèle de photographe et récupère l'élément DOM de sa carte utilisateur
         const photographerModel = photographerTemplate(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
+        // Ajoute la carte utilisateur à la section des photographes
         photographersSection.appendChild(userCardDOM);
     });
 }
